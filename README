@@ -1,16 +1,8 @@
-This is an Arduino library that enables you to read sensor values from the
-DHT11, DHT21, and DHT22 temperature and humiditiy sensors without blocking
-other code execution.
+ This project is based off the olewolf/DHT_nonblocking project example. This project is aimed toward fixing defrost issues with fridges by connecting DHT sensor to the inside of the fridge and when the temperature reaches certain temperature the pin 12 on the Arduino will give voltage of 5v until  the set temperature is reached, the 5v of the arduino can be then hooked up to a relay to turn on the heating device in the fridge. 
 
-The driver is based on Adafruit Industries' DHT driver library and utilizes
-a state machine that is kept alive by calling it repeatedly.
 
-To obtain the most recent version of the code or to report issues (or,
-better, provide fixes), please visit the Github pages at
-<https://github.com/olewolf/DHT_nonblocking>.
 
-Inquiries via the Github issue tracker, please.  This way, others may benefit
-from the answers.
+
 
 (C) 2015 Ole Wolf <wolf@blazingangles.com>
 
