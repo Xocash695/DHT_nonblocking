@@ -18,7 +18,9 @@ DHT_nonblocking dht_sensor( DHT_SENSOR_PIN, DHT_SENSOR_TYPE );
 void setup( )
 {
   Serial.begin( 9600);
-  Serial.print("Please Refer to
+  Serial.print("Please Refer to https://github.com/Xocash695/Fridge-Defrost.git for more info");
+  
+  
 }
 
 
@@ -53,8 +55,8 @@ void loop( )
 {
   float temperature;
   float humidity;
-  float setlow = 5.00; // The low temprature in which the arduino check if the temprature goes below and sets digital pin 12 High
-  float sethigh = 10.00; // The high temprature in which the arduino checks if the required temperature has been met to turn digital pin 12 Low
+  float setlow = 5.00;
+  float sethigh = 10.00;
   pinMode(12, OUTPUT);
 
   /* Measure temperature and humidity.  If the functions returns
