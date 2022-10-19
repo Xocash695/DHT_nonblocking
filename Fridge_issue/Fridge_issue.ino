@@ -18,9 +18,9 @@ DHT_nonblocking dht_sensor( DHT_SENSOR_PIN, DHT_SENSOR_TYPE );
 void setup( )
 {
   Serial.begin( 9600);
+  Serial.print(" This device is aimed toward fixing defrost issues with fridges");
   Serial.print("Please Refer to https://github.com/Xocash695/Fridge-Defrost.git for more info");
-  
-  
+
 }
 
 
@@ -65,10 +65,10 @@ void loop( )
   { 
     if (temperature <= setlow) {
      digitalWrite(12, HIGH); 
-     for (int i = 0; i < 9000; i++) {
+     for (int i = 0; i < 90000; i++) {
         float temperature;
         Serial.println("DeFrost");
-        delay(1000);
+        delay(10000);
         if (temperature >= sethigh) {
           break;
         }
@@ -76,7 +76,7 @@ void loop( )
      
      
     } else {
- 
+     
         digitalWrite(12, LOW);
         Serial.print( "T = " );
         Serial.print( temperature, 1 );
