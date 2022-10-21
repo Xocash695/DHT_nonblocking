@@ -10,16 +10,21 @@
 static const int DHT_SENSOR_PIN = 2;
 DHT_nonblocking dht_sensor( DHT_SENSOR_PIN, DHT_SENSOR_TYPE );
 
-
+int count = 0; 
+float setlow = -10.00;
+float sethigh = 10.00;
+bool Defrost = false;
+bool cycle = false;
 
 /*
  * Initialize the serial port.
  */
-void setup( )
-{
+void setup()
+{ 
+  
   Serial.begin( 9600);
-  Serial.print(" This device is aimed toward fixing defrost issues with fridges");
-  Serial.print("Please Refer to https://github.com/Xocash695/Fridge-Defrost.git for more info");
+  Serial.println(" This device is aimed toward fixing defrost issues with fridges");
+  Serial.println("Please Refer to https://github.com/Xocash695/Fridge-Defrost.git for more info");
 
 }
 
@@ -52,11 +57,9 @@ static bool measure_environment( float *temperature, float *humidity )
  * Main program loop.
  */
 void loop( )
-{
+{ 
   float temperature;
   float humidity;
-  float setlow = 5.00;
-  float sethigh = 10.00;
   pinMode(12, OUTPUT);
 
   /* Measure temperature and humidity.  If the functions returns
@@ -64,26 +67,33 @@ void loop( )
   if( measure_environment( &temperature, &humidity ) == true )
   { 
     if (temperature <= setlow) {
-     digitalWrite(12, HIGH); 
-     for (int i = 0; i < 90000; i++) {
-        float temperature;
-        Serial.println("DeFrost");
-        delay(10000);
-        if (temperature >= sethigh) {
-          break;
-        }
-     }
+     digitalWrite(12, HIGH);    
+     Defrost = true;
      
-     
-    } else {
-     
-        digitalWrite(12, LOW);
-        Serial.print( "T = " );
-        Serial.print( temperature, 1 );
-        Serial.print( " deg. C, H = " );
-        Serial.print( humidity, 1 );
-        Serial.println( "%" ); 
+    } else if (temperature >= sethigh) {
+         digitalWrite(12, LOW);
+         Defrost = false;
+        
     }
+    Serial.println("_______________________________________");
+    if (Defrost == true) {
+      Serial.println("Defrost: ON");
+      cycle = true; 
+      
+    } else {
+      Serial.println("Defrost: OFF");
+      if (cycle == true){
+        count++;
+        cycle = false;
+      }
+    }
+    Serial.print( "Temperature = " );
+    Serial.print( temperature, 1 );
+    Serial.print( " deg. C, Humidity = " );
+    Serial.print( humidity, 1 );
+    Serial.println( "%" ); 
+    Serial.print("The Count is :");
+    Serial.println(count);
 
   }
 }

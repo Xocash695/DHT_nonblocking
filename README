@@ -1,4 +1,4 @@
- This project is based off the olewolf/DHT_nonblocking project example. This project is aimed toward fixing defrost issues with fridges by connecting DHT sensor to the inside of the fridge and when the temperature reaches certain temperature the pin 12 on the Arduino will give voltage of 5v until  the set temperature is reached, the 5v of the arduino can be then hooked up to a relay to turn on the heating device in the fridge. 
+ This project is based off the olewolf/DHT_nonblocking project example. This project is aimed toward fixing defrost issues with fridges by connecting DHT sensor to the inside of the fridge and when the temperature reaches certain temperature the pin 12 on the Arduino will give voltage of 5v until  the set temperature is reached, the 5v of the Arduino can be then hooked up to a relay to turn on the heating device in the fridge.   
 
 
 
