@@ -29,7 +29,6 @@ void setup()
   Serial.begin( 9600);
   Serial.println("This device is aimed toward fixing defrost issues with fridges");
   Serial.println("Please Refer to https://github.com/Xocash695/Fridge-Defrost.git for more info");
-  Serial.println("VERISON: 1.0");
 }
 
 
