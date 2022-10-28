@@ -1,6 +1,18 @@
  This project is based off the olewolf/DHT_nonblocking project example. This project is aimed toward fixing defrost issues with fridges by connecting DHT sensor to the inside of the fridge and when the temperature reaches certain temperature the pin 12 on the Arduino will give voltage of 5v until  the set temperature is reached, the 5v of the Arduino can be then hooked up to a relay to turn on the heating device in the fridge.   
 
 
+FUNCTIONS:
+
+ENTER THE NUMBER OF THE OPTION INTO ARDUINO SERIAL MONITOR.
+
+OPTION 1: 
+    CHANGE SETHIGH AND SETLOW VARIABLES #NOTE WILL SET BACK TO DEFAULT UPON POWER FALIURE OR RESTART
+OPTION 2: 
+    MANUAL DEFROST ON OR OFF #NOTE DEFROST WILL GO BACK TO AUTOMATIC IN 30 SECS IF SAFETY IS ON
+OPTION 3: 
+    TURN SAFTEY ON OR OFF. #NOTE THIS WILL CAUSE MANUAL DEFROST NOT TO GO BACK TO AUTOMATIC IN 30 SECS IF TURNED ON.
+OPTION 4: 
+    RESET VARIBLES TO DEFAULT.
 
 
 
